@@ -1,0 +1,109 @@
+---
+title: "Data Science day 1"
+author: "Wajid Umar"
+date: "07/10/2021"
+output: html_document
+---
+
+This is our first day of data science course.
+My name is Wajid Umar and I am learning data science.
+
+Basic ploting
+
+1-simple plot
+```{r}
+x<-iris
+plot(x$Sepal.Length,x$Sepal.Width, xlab = "sepal length", ylab = "sepal width", main = "scatter")
+```
+
+Relational plot
+```{r}
+plot(x)
+```
+
+2-histogram
+```{r}
+hist(x$Petal.Length)
+```
+
+3-boxplot
+```{r}
+boxplot(x$Sepal.Length~x$Species, data = x)
+```
+
+4-image graph
+```{r}
+y<-matrix(1:120, 12,10)
+y
+image(y)
+```
+
+5-strip chart
+```{r}
+stripchart(x$Sepal.Length)
+```
+
+6-qqnorm plot
+```{r}
+qqnorm(x$Petal.Length)
+```
+
+Intermediate plot
+
+7 scatter plot
+
+first of all we need to calculate corelation
+```{r}
+library(corrplot)
+v<-cor(iris[1:4])
+corrplot(v)
+```
+
+another diverse data set
+```{r}
+c<-cor(mtcars)
+corrplot(c)
+```
+
+in number formate
+```{r}
+corrplot(c, method = "number")
+```
+
+upper corr plot
+```{r}
+corrplot(c, method = "number", type = "upper")
+```
+
+lower corrplot
+```{r}
+corrplot(c, method = "number", type = "lower")
+```
+
+mixed corrplot
+```{r}
+corrplot.mixed(c, lower = "number", upper = "pie", order="AOE")
+```
+
+clustering
+```{r}
+corrplot(c, order = "hclust", addrect = 2)
+```
+
+Another method to make correlation plot
+
+```{r}
+library(PerformanceAnalytics)
+chart.Correlation(c, histogram = TRUE, method = "pearson")
+
+```
+
+
+
+
+
+
+
+
+
+
